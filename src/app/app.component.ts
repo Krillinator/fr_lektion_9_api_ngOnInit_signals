@@ -1,10 +1,13 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Product } from './types/Product';
+import { CommonModule } from '@angular/common';
+import { ProductComponent } from './product/product.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HttpClientModule],
+  imports: [RouterOutlet, CommonModule, ProductComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -12,7 +15,7 @@ export class AppComponent {
   title = 'lektion_9';
 
   // Prepare API
-  productData: any; // WHY ANY? What do we do to change this...
+  productData: Product[] = [];
 
   // Student student = new Student(name: "Benny", password: "123")
   // TODO - private - scope
@@ -25,8 +28,8 @@ export class AppComponent {
     console.log('Hello world :)');
 
     this.httpClient
-      .get('https://fakestoreapi.com/products')
-      .subscribe((response) => {
+      .get<Product[]>('https://fakestoreapi.com/products') // Typesafety == ACHIEVED
+      .subscribe((response: Product[]) => {
         this.productData = response;
       });
   }
