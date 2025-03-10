@@ -1,0 +1,28 @@
+<main>
+  <header>
+    <h1>Sign-up Forms</h1>
+    <p>Become a part of an evergrowing community and earn a quick buck</p>
+  </header>
+
+  <section class="formSection">
+    <form [formGroup]="userForm" (ngSubmit)="handleOnSubmit()">
+      <label for="username">Username</label>
+      <input
+        name="username"
+        type="text"
+        formControlName="{{ userFormControlName.Username }}"
+      />
+
+      <label for="password">Password</label>
+      <input
+        name="password"
+        type="password"
+        formControlName="{{ userFormControlName.Password }}"
+      />
+
+      <p>{{ userForm.status }}</p>
+
+      <button type="submit" [disabled]="userForm.invalid">Sign up</button>
+    </form>
+  </section>
+</main>

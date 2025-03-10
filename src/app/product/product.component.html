@@ -7,5 +7,7 @@
     <p>{{ item.price }}</p>
     <p>{{ item.category }}</p>
     <p>Count:{{ item.rating.count }} Rate: {{ item.rating.rate }}</p>
+
+    <button (click)="addProductToCart(item)">Add to cart</button>
   </section>
 </main>

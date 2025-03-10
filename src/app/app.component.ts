@@ -19,11 +19,13 @@ export class AppComponent {
 
   // Student student = new Student(name: "Benny", password: "123")
   // TODO - private - scope
+  // Answer - globally available throughout this single page
   constructor(private httpClient: HttpClient) {}
 
   // TODO - Personal: fix extension for intellisense
   // On Creation of component
   // ngOnInit = always executes ONCE
+
   ngOnInit() {
     console.log('Hello world :)');
 

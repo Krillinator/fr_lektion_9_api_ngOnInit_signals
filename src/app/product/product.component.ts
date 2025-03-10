@@ -20,4 +20,20 @@ export class ProductComponent {
       count: 0,
     },
   };
+
+  // TODO - Show active example of product
+  addProductToCart(item: Product) {
+    /*
+    const product: string | null = localStorage.getItem('productList');
+
+    if (product != null) {
+      let currentProductList: Product[] = JSON.parse(product);
+      const newProductList = [...currentProductList, item];
+
+      localStorage.setItem('productList', JSON.stringify(newProductList));
+    } else {
+      localStorage.setItem('productList', JSON.stringify(item));
+    }
+      */
+  }
 }
